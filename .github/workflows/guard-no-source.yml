@@ -1,0 +1,32 @@
+﻿name: Guard no source
+
+# Public DrMeji/Ark must stay installer/README only.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  no-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Allowlist check
+        run: |
+          set -euo pipefail
+          mapfile -t files < <(git ls-tree -r --name-only HEAD)
+          echo "Tracked files:"
+          printf '%s\n' "${files[@]}"
+          allow='^(README\.md|\.github/workflows/guard-no-source\.yml|\.gitignore)$'
+          bad=0
+          for f in "${files[@]}"; do
+            if [[ ! "$f" =~ $allow ]]; then
+              echo "::error::Disallowed public file: $f"
+              bad=1
+            fi
+          done
+          if [[ "$bad" -ne 0 ]]; then
+            echo "Public Ark may only contain README (+ this workflow). Remove source files."
+            exit 1
+          fi
+          echo "OK — public tree is README-only."
