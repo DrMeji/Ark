@@ -4,26 +4,34 @@
 
 Chat with local or cloud models, generate images and video, build and edit projects on your PC, and keep your work in one place.
 
-## Download
+## Download (this is what you want)
 
-Get the latest Windows installer from **[Releases](https://github.com/DrMeji/Ark/releases)**:
+Get the Windows installer from **[Releases](https://github.com/DrMeji/Ark/releases)**:
 
-- **ARK-Setup.exe** — recommended installer
-- Updates after install: open ARK → **Settings → Updates → Check → Download**
+- **ARK-Setup.exe** only — install ARK on your PC
+- After install: **Settings → Updates → Check → Download** for newer builds
 
-## What ARK does
+## Important: “Source code (zip / tar.gz)” on Releases
 
-- **Chat** — talk with AI on your machine or through connected providers
-- **Image / Video** — create media from prompts
-- **Projects** — create and edit local apps and folders with AI help
-- **Connect** — optional free and paid AI keys when you want more capacity
+GitHub **always** adds two automatic links on every release page:
+
+- Source code (zip)
+- Source code (tar.gz)
+
+Those are **not** the ARK application. GitHub generates them from *this* public repo, which contains **only this README** (and a tiny guard file). There is **no** ARK app source, UI code, or backend logic here.
+
+ARK’s real source code is **private** and is not published on GitHub for download.
+
+If you want ARK, download **ARK-Setup.exe** only.
+
+## What this public repo contains
+
+| Included | Not included |
+|----------|--------------|
+| This README | Application source (`src`, `electron`, etc.) |
+| Windows installers on Releases | How ARK works internally |
+| Update feed (`latest.yml`) | Private docs / build recipes |
 
 ## Privacy
 
-This public repository hosts **installers and release notes only**.
-
-ARK’s application source code is **not** published here. You can download and run the app; you cannot browse ARK’s source from this repo.
-
-## Support
-
-Use in-app Settings for updates. For release history, open the Releases page linked above.
+You can download and run the app. You cannot browse ARK’s source from this repository.
